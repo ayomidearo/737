@@ -67,6 +67,12 @@ function populateRecords() {
 }
 populateRecords();
 
+if('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('./service-worker.js')
+             .then(function() { console.log("Service Worker Registered"); });
+}
+
 function openRecord(element) {
     var index = element.getAttribute('data-index');
     active_record = database[index];
